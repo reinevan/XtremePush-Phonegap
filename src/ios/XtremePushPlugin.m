@@ -32,6 +32,10 @@ static NSMutableDictionary *pushNotificationBackupList;
     
     id appKey = [options objectForKey:@"appKey"];
     if (appKey != nil) [XPush setAppKey:appKey];
+
+    #if DEBUG     
+    [XPush setSandboxModeEnabled:YES];     
+    #endif     
     
     id debugLogsEnabled = [options objectForKey:@"debugLogsEnabled"];
     if (debugLogsEnabled != nil) [XPush setShouldShowDebugLogs:[debugLogsEnabled boolValue]];
